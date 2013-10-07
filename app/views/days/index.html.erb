@@ -4,7 +4,7 @@
   <% @days.each do |day| %>
     <li>
       <%# Can't get the :method => :post to work here :( %>
-      <%= link_to_if logged_in?, day.day, visit_path(day), :method => :post %>
+      <%= link_to_if logged_in?, day, visit_path(day), :method => :post %>
       <ul>
         <%# day.visits.includes(:user).each do |visit| %>
         <% day.visits.each do |visit| %>

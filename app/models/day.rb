@@ -13,6 +13,10 @@ class Day < ActiveRecord::Base
     Date.today.beginning_of_week(:sunday)
   end
 
+  def to_s
+    day.strftime("%A %b %-d")
+  end
+
   def already_has?(user)
     users.include?(user)
   end

@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 1.2'
 # gem 'simple_form'
 
 # what is this??
-# gem 'turbolinks'
+gem 'turbolinks'
 
 group :development do
   gem 'better_errors'

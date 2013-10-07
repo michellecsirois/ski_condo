@@ -8,14 +8,14 @@ class VisitsController < ApplicationController
       flash[:error] = "Looks like you're already signed up for that day."
     end
 
-    redirect_to root_url
+    redirect_to :back
   end
 
   def destroy
     visit = Visit.find(params[:id])
     visit.destroy
 
-    redirect_to root_url, :notice => "No longer signed up for that day."
+    redirect_to :back, :notice => "No longer signed up for that day."
   end
 
   private

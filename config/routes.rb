@@ -1,9 +1,9 @@
 SkiCondo::Application.routes.draw do
-  resources :users
-  resources :days
+  resources :users, :only => [:new, :create, :index]
+  resources :days, :only => :index
 
-  get '/days/:id/visit' => 'visits#create', :as => 'visit'
-  delete '/visits/:id' => 'visits#destroy', :as => 'unvisit'
+  get '/days/:id/visit' => 'visits#create',  :as => 'visit'
+  delete '/visits/:id'  => 'visits#destroy', :as => 'unvisit'
 
   get '/login'  => 'sessions#new'
   get '/logout' => 'sessions#destroy'

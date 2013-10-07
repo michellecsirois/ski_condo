@@ -7,7 +7,21 @@
 </head>
 <body>
 
-<%= yield %>
+  <% if flash[:notice] %>
+    <div class='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+  <% if flash[:error] %>
+    <div class='error'><%= flash[:error] %></div>
+  <% end %>
+
+  <% if logged_in? %>
+    <%= link_to 'Log Out', logout_path %>
+  <% else %>
+    <%= link_to 'Log In', login_path %>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>

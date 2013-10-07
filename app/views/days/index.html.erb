@@ -3,7 +3,21 @@
 <ul>
   <% @days.each do |day| %>
     <li>
-      <%= day.day %>
+      <%# Can't get the :method => :post to work here :( %>
+      <%= link_to_if logged_in?, day.day, visit_path(day), :method => :post %>
+      <ul>
+        <%# day.visits.includes(:user).each do |visit| %>
+        <% day.visits.each do |visit| %>
+          <li>
+            <%= visit %>
+            <% if visit.user == current_user %>
+              <%# Can't get the :method => :delete with a link to work here either :( %>
+              <%# thanks Rails 4 %>
+              <%= button_to 'x', unvisit_path(visit), :method => :delete %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
 </ul>

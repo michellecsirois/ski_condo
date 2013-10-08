@@ -6,7 +6,7 @@
 <ul>
   <% @days.each do |day| %>
     <li>
-      <%= link_to_if logged_in?, day, visit_path(day), method: :post %>
+      <%= link_to_if logged_in?, day, visit_path(day), :method => :post %>
       <ul>
         <% day.visits.each do |visit| %>
           <li>

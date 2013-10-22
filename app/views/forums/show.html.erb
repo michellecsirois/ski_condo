@@ -1,0 +1,21 @@
+<% title "Forums" %>
+
+<table>
+  <tr>
+	<th width="60%">Threads</th>
+	<th width="20%">Last Poster</th>
+	<th width="20%">Last Post At</th>
+	<% for topic in @forum.topics %>
+	  <tr>
+		<td><h4><%= link_to topic.name, "/topics/#{topic.id}"%></h4></td>
+		<td><%= topic.last_poster_id  %></td>
+		<td class="right">
+		  <% if topic.forum.most_recent_post %><%= distance_of_time_in_words_to_now topic.forum.most_recent_post.last_post_at %> ago
+		  <% else %>no posts
+		  <% end %>
+		</td>
+	  </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Thread", new_topic_path %></p>

@@ -11,12 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008125059) do
+ActiveRecord::Schema.define(version: 20131022200243) do
 
   create_table "days", force: true do |t|
     t.date     "day"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "forums", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topics", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "forum_id"
+    t.datetime "last_post_at"
+    t.integer  "last_poster_id"
   end
 
   create_table "users", force: true do |t|

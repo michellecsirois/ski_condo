@@ -11,4 +11,9 @@ SkiCondo::Application.routes.draw do
   resources :sessions, :only => :create
 
   root 'days#index'
+
+	resources :forums, :only => :show
+
+	resources :topics, :only => [:new, :create, :edit, :destroy, :show]
+
 end
